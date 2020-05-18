@@ -25,10 +25,18 @@ public class FormFactory {
                 forme = new Rectangle(coordA, coordB, coordC, coordD);
                 break;
             case carre:
-                forme = new Carré();
+                Position A = new Position(Double.parseDouble(params.get(2)),Double.parseDouble(params.get(3)));
+                Position B = new Position(Double.parseDouble(params.get(4)),Double.parseDouble(params.get(5)));;
+                Position C = new Position(Double.parseDouble(params.get(6)),Double.parseDouble(params.get(7)));;
+                Position D = new Position(Double.parseDouble(params.get(2)),Double.parseDouble(params.get(3)));;
+
+                forme = new Carre(A, B, C, D);
                 break;
             case triangle:
-                forme = new Triangle();
+                Position sommet = new Position(Double.parseDouble(params.get(2)),Double.parseDouble(params.get(3)));
+                Position baseG = new Position(Double.parseDouble(params.get(4)),Double.parseDouble(params.get(5)));;
+                Position baseD = new Position(Double.parseDouble(params.get(6)),Double.parseDouble(params.get(7)));;
+                forme = new Triangle(sommet, baseG, baseD);
                 break;
             default:
                 throw new IllegalArgumentException("Type de Forme inconnu");
