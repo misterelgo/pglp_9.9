@@ -2,9 +2,9 @@ package com.elgo;
 
 public class Cercle implements Formes {
 
-    int rayon;
+    double rayon;
     Position centre;
-    public Cercle(Position centre, int rayon){
+    public Cercle(Position centre, double rayon){
         this.centre = centre;
         this.rayon = rayon;
 

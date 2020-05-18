@@ -7,7 +7,7 @@ public class FormesTest extends TestCase {
     public void testDisplay() {
         System.out.println( "Hello World!" );
         Position centre = new Position(0., 0.);
-        Cercle c1 = new Cercle(centre, 50);
+        Cercle c1 = new Cercle(centre, 50.);
         c1.display();
         c1.move(2., 2.);
         c1.display();

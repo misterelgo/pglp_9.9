@@ -13,14 +13,15 @@ public class FormFactory {
 
         switch (typeForme) {
             case cercle:
-                Position centre = new Position(Double.parseDouble(params.get(2)),Double.parseDouble(params.get(3)));
-                forme = new Cercle(centre, 50);
+                Position centre = new Position(Double.parseDouble(params.get(0)),Double.parseDouble(params.get(1)));
+                forme = new Cercle(centre, Double.parseDouble(params.get(2)));
+                forme.display();
                 break;
             case rectangle:
-                Position coordA = new Position(Double.parseDouble(params.get(2)),Double.parseDouble(params.get(3)));
-                Position coordB = new Position(Double.parseDouble(params.get(4)),Double.parseDouble(params.get(5)));;
-                Position coordC = new Position(Double.parseDouble(params.get(6)),Double.parseDouble(params.get(7)));;
-                Position coordD = new Position(Double.parseDouble(params.get(2)),Double.parseDouble(params.get(3)));;
+                Position coordA = new Position(Double.parseDouble(params.get(0)),Double.parseDouble(params.get(1)));
+                Position coordB = new Position(Double.parseDouble(params.get(2)),Double.parseDouble(params.get(3)));;
+                Position coordC = new Position(Double.parseDouble(params.get(4)),Double.parseDouble(params.get(5)));;
+                Position coordD = new Position(Double.parseDouble(params.get(6)),Double.parseDouble(params.get(7)));;
 
                 forme = new Rectangle(coordA, coordB, coordC, coordD);
                 break;
