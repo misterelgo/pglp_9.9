@@ -1,0 +1,11 @@
+com\elgo\Formes.class
+com\elgo\App.class
+com\elgo\Position.class
+com\elgo\DAO_API.class
+com\elgo\Carre.class
+com\elgo\Cercle.class
+com\elgo\FormFactory.class
+com\elgo\Rectangle.class
+com\elgo\Triangle.class
+com\elgo\CompositeForm.class
+com\elgo\dbConnection.class

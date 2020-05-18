@@ -18,5 +18,8 @@ public class App
         list.add("50");
         FormFactory form = new FormFactory();
         form.getForme("cercle", list);
+
+        dbConnection dbConnection = new dbConnection();
+        dbConnection.getConnection();
     }
 }
