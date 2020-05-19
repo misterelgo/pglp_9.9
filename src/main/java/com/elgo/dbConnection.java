@@ -20,10 +20,10 @@ public class dbConnection {
         //connection a la base de données
         display("connexion a la base de données");
         try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            Class.forName("org.h2.Driver");
             //Get a connection
-            this.conn = DriverManager.getConnection(dbURL);
-            if (this.conn!=null)
+            conn = DriverManager.getConnection("jdbc:h2:~/formes", "elgo", "" );
+            if (conn!=null)
             {
                 display("connected Successfully");
             }

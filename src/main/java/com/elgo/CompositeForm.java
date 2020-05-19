@@ -5,7 +5,14 @@ import java.util.List;
 
 public class CompositeForm implements Formes{
 
-    private List<Formes> formsGroup =new ArrayList<>();
+    private List<Formes> formsGroup;
+    private String groupName;
+
+    public CompositeForm(String groupName){
+        this.groupName = groupName;
+        formsGroup = new ArrayList<>();
+    }
+
     @Override
     public void display() {
         for (Formes forme : formsGroup) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.elgo.AppTest" time="0.101" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.elgo.AppTest" time="0.119" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-13\bin"/>
-    <property name="sun.java.command" value="C:\Users\miste\AppData\Local\Temp\surefire9138463802245580411\surefirebooter715811571445526314.jar C:\Users\miste\AppData\Local\Temp\surefire9138463802245580411 2020-05-18T05-47-34_960-jvmRun1 surefire6798792408160224235tmp surefire_015494619044783706546tmp"/>
+    <property name="sun.java.command" value="C:\Users\miste\AppData\Local\Temp\surefire6738428807504439109\surefirebooter9515368619535800114.jar C:\Users\miste\AppData\Local\Temp\surefire6738428807504439109 2020-05-18T23-01-56_220-jvmRun1 surefire5689727873102254978tmp surefire_0577123113086036945tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\miste\Desktop\UVSQ M1\M1-S2 DataScale\Prog_GLP\pglp_9.9\target\test-classes;C:\Users\miste\Desktop\UVSQ M1\M1-S2 DataScale\Prog_GLP\pglp_9.9\target\classes;C:\Users\miste\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\miste\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\miste\.m2\repository\org\apache\derby\derby\10.15.2.0\derby-10.15.2.0.jar;C:\Users\miste\.m2\repository\org\apache\derby\derbyshared\10.15.2.0\derbyshared-10.15.2.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="idea.version2020.1.1" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\miste\AppData\Local\Temp\surefire9138463802245580411\surefirebooter715811571445526314.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\miste\AppData\Local\Temp\surefire6738428807504439109\surefirebooter9515368619535800114.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="13+33"/>
@@ -56,5 +56,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.elgo.AppTest" time="0.005"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.elgo.AppTest" time="0.004"/>
 </testsuite>
