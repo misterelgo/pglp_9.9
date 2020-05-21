@@ -1,5 +1,6 @@
 package com.elgo;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,17 +10,12 @@ import java.util.List;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-        List<String> list = new ArrayList<String>();
-        list.add("0");
-        list.add("0");
-        list.add("50");
-        FormFactory form = new FormFactory();
-        form.getForme("cercle", list);
-
-        dbConnection dbConnection = new dbConnection();
-        dbConnection.getConnection();
+    public static void main( String[] args ) {
+        CercleDAO cercle = new CercleDAO();
+        cercle.createForm();
+        Position centre = new Position(0., 0.);
+        Cercle c1 = new Cercle(centre, 50.);
+        cercle.addForme(c1);
+        cercle.printAll();
     }
 }

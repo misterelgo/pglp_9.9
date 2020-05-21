@@ -9,6 +9,13 @@ public class Cercle implements Formes {
         this.rayon = rayon;
 
     }
+
+    public double getRayon() {
+        return rayon;
+    }
+    public Position getCentre() {
+        return centre;
+    }
     @Override
     public void display() {
         System.out.println("Cercle(centre("+centre.getX()+","+centre.getY()+")rayon: "+rayon+")");
