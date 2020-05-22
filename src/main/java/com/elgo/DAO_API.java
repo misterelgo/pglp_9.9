@@ -9,7 +9,6 @@ public abstract class DAO_API<Figures>{
 
     public abstract void createForm();
     public abstract Figures findForm(int id) throws SQLException;
-    public abstract int update(int id , String nom, String prenom);
-    public abstract int delete (int id);
+    public abstract void delete (int id);
     public abstract void printAll ();
 }

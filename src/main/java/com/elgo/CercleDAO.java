@@ -1,5 +1,6 @@
 package com.elgo;
 
+
 import java.sql.*;
 
 
@@ -103,18 +104,105 @@ public class CercleDAO extends DAO_API{
         } // end try
     }
     @Override
-    public Object findForm(int id) throws SQLException {
+    public Object findForm(int id){
+        Connection conn = null;
+        Statement stmt = null;
+        try{
+            // STEP 1: Register JDBC driver
+            Class.forName(JDBC_DRIVER);
+
+            // STEP 2: Open a connection
+            System.out.println("Connecting to a selected database...");
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            System.out.println("Connected database successfully...");
+
+            // STEP 3: Execute a query
+            stmt = conn.createStatement();
+            String sql = "SELECT id, centreX, centreY, rayon FROM CERCLE WHERE id = "+id;
+            stmt.executeQuery(sql);
+
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.println("looking for cercle"+id);
+            // STEP 4: Extract data from result set
+            if (rs.next() == true){
+                while(rs.next()) {
+                    // Retrieve by column name
+                    double centreX = rs.getDouble("centreX");
+                    double centreY = rs.getDouble("centreY");
+                    double rayon = rs.getDouble("rayon");
+
+                    // Display values
+                    System.out.print("Cecle" + id +"("+centreX+", "+centreY+") "+rayon+")");
+                }
+                // STEP 5: Clean-up environment
+                rs.close();
+            }else{
+                System.out.println("This Cercle doesn't exist here");
+            }
+
+            // STEP 4: Clean-up environment
+            stmt.close();
+            conn.close();
+        } catch(SQLException se) {
+            // Handle errors for JDBC
+            se.printStackTrace();
+        } catch(Exception e) {
+            // Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            // finally block used to close resources
+            try {
+                if(stmt!=null) stmt.close();
+            } catch(SQLException se2) {
+            } // nothing we can do
+            try {
+                if(conn!=null) conn.close();
+            } catch(SQLException se) {
+                se.printStackTrace();
+            } // end finally try
+        } // end try
         return null;
     }
 
-    @Override
-    public int update(int id, String nom, String prenom) {
-        return 0;
+    public void update(int id, String nom, String prenom) {
+
     }
 
     @Override
-    public int delete(int id) {
-        return 0;
+    public void delete(int id) {
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            // STEP 1: Register JDBC driver
+            Class.forName(JDBC_DRIVER);
+
+            // STEP 2: Open a connection
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+            stmt = conn.createStatement();
+            String sql = "DELETE FROM CERCLE " + "WHERE id = "+ id;
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch(SQLException se) {
+            // Handle errors for JDBC
+            se.printStackTrace();
+        } catch(Exception e) {
+            // Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            // finally block used to close resources
+            try {
+                if(stmt!=null) stmt.close();
+            } catch(SQLException se2) {
+            } // nothing we can do
+            try {
+                if(conn!=null) conn.close();
+            } catch(SQLException se) {
+                se.printStackTrace();
+            } // end finally try
+        } // end try
     }
 
     @Override
