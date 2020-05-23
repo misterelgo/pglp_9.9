@@ -1,11 +1,8 @@
 package com.elgo;
 
-
 import java.sql.*;
 
-
-public class CercleDAO extends DAO_API{
-
+public class RectDAO extends DAO_API{
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "org.h2.Driver";
     static final String DB_URL = "jdbc:h2:~/formes";
@@ -29,16 +26,20 @@ public class CercleDAO extends DAO_API{
             // STEP 3: Execute a query
             System.out.println("Connected database successfully...");
             stmt = conn.createStatement();
-            String dropTables = "DROP TABLE IF EXISTS CERCLE";
-            String queryCercle = "CREATE TABLE CERCLE" +
-                                 "(id INT PRIMARY KEY AUTO_INCREMENT," +
-                                 " nom varchar(40), " +
-                                 " centreX double, " +
-                                 "centreY double, rayon double)";
-
+            String dropTables = "DROP TABLE IF EXISTS RECTANGLE";
+            String queryRect = "CREATE TABLE RECTANGLE" +
+                    "(id INT PRIMARY KEY AUTO_INCREMENT," +
+                    " nom varchar(40), " +
+                    " ax double, " +
+                    " ay double, " +
+                    " bx double, " +
+                    " by double, " +
+                    " cx double, " +
+                    " cy double, " +
+                    "dx double, dy double)";
             stmt.executeUpdate(dropTables);
-            stmt.executeUpdate(queryCercle);
-            System.out.println("Created table in given database...");
+            stmt.executeUpdate(queryRect);
+            System.out.println("Created Rectangle in the given database...");
 
             // STEP 4: Clean-up environment
             stmt.close();
@@ -63,7 +64,7 @@ public class CercleDAO extends DAO_API{
         } //end try
     }
 
-    public void addForme(Cercle cercle){
+    public void addForme(Rectangle rect){
         Connection conn = null;
         Statement stmt = null;
         try{
@@ -77,8 +78,12 @@ public class CercleDAO extends DAO_API{
 
             // STEP 3: Execute a query
             stmt = conn.createStatement();
-            String sql = "INSERT INTO cercle (nom, centreX, centreY, rayon) " +
-                    "VALUES ("+"'"+cercle.getNom()+"'"+","+cercle.getCentre().getX()+","+cercle.getCentre().getY()+","+cercle.getRayon()+")";
+            String sql = "INSERT INTO RECTANGLE (nom, ax, ay, bx, by, cx, cy, dx, dy) " +
+                    "VALUES ("+"'"+rect.getNom()+"'"+
+                    ","+rect.getCoordA().getX()+","+rect.getCoordA().getY()+
+                    ","+rect.getCoordB().getX()+","+rect.getCoordB().getX()+
+                    ","+rect.getCoordC().getX()+","+rect.getCoordC().getX()+
+                    ","+rect.getCoordD().getX()+","+rect.getCoordD().getX()+")";
 
             stmt.executeUpdate(sql);
 
@@ -121,26 +126,31 @@ public class CercleDAO extends DAO_API{
 
             // STEP 3: Execute a query
             stmt = conn.createStatement();
-            String sql = "SELECT id, nom, centreX, centreY, rayon FROM CERCLE WHERE nom =  "+"'"+nom+"'";
+            String sql = "SELECT id, nom, ax, ay, bx, by, cx, cy, dx, dy FROM RECTANGLE WHERE nom =  "+"'"+nom+"'";
             stmt.executeQuery(sql);
 
             ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("looking for cercle: "+nom);
+            System.out.println("looking for rectangle : "+nom);
             // STEP 4: Extract data from result set
             if (rs.next() == true){
                 while(rs.next()) {
                     // Retrieve by column name
-                    double centreX = rs.getDouble("centreX");
-                    double centreY = rs.getDouble("centreY");
-                    double rayon = rs.getDouble("rayon");
-
+                    double ax = rs.getDouble("ax");
+                    double ay = rs.getDouble("ay");
+                    double bx = rs.getDouble("bx");
+                    double by = rs.getDouble("by");
+                    double cx = rs.getDouble("cx");
+                    double cy = rs.getDouble("cy");
+                    double dx = rs.getDouble("dx");
+                    double dy = rs.getDouble("dy");
                     // Display values
-                    System.out.print(nom+" = Cercle" +"("+centreX+", "+centreY+") "+rayon+")");
+                    System.out.print(nom+" = RECTANGLE" +" A("+ax+", "+ay+") B("+bx+","+ by+") C("+
+                            cx +", "+cy+" D("+ dx +", "+dy+")");
                 }
                 // STEP 5: Clean-up environment
                 rs.close();
             }else{
-                System.out.println("This Cercle doesn't exist here");
+                System.out.println("This Rectangle doesn't exist here");
             }
 
             // STEP 4: Clean-up environment
@@ -184,7 +194,7 @@ public class CercleDAO extends DAO_API{
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
             stmt = conn.createStatement();
-            String sql = "DELETE FROM CERCLE " + "WHERE id = "+ id;
+            String sql = "DELETE FROM RECTANGLE " + "WHERE id = "+ id;
             stmt.executeUpdate(sql);
             stmt.close();
             conn.close();
@@ -223,7 +233,7 @@ public class CercleDAO extends DAO_API{
             // STEP 3: Execute a query
             System.out.println("Connected database successfully...");
             stmt = conn.createStatement();
-            String sql = "SELECT id, nom, centreX, centreY, rayon FROM CERCLE";
+            String sql = "SELECT id, nom, ax, ay, bx, by, cx, cy, dx, dy FROM RECTANGLE";
             ResultSet rs = stmt.executeQuery(sql);
 
             // STEP 4: Extract data from result set
@@ -231,12 +241,17 @@ public class CercleDAO extends DAO_API{
                 // Retrieve by column name
                 int id  = rs.getInt("id");
                 String nom = rs.getString("nom");
-                double centreX = rs.getDouble("centreX");
-                double centreY = rs.getDouble("centreY");
-                double rayon = rs.getDouble("rayon");
-
+                double ax = rs.getDouble("ax");
+                double ay = rs.getDouble("ay");
+                double bx = rs.getDouble("bx");
+                double by = rs.getDouble("by");
+                double cx = rs.getDouble("cx");
+                double cy = rs.getDouble("cy");
+                double dx = rs.getDouble("dx");
+                double dy = rs.getDouble("dy");
                 // Display values
-                System.out.print(nom+" = Cercle" + id +"("+centreX+", "+centreY+") "+rayon+")");
+                System.out.print(nom+" = RECTANGLE" + id +" A("+ax+", "+ay+") B("+bx+","+ by+") C("+
+                        cx +", "+cy+" D("+ dx +", "+dy+")");
             }
             // STEP 5: Clean-up environment
             rs.close();

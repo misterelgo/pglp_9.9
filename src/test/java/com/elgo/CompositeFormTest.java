@@ -13,14 +13,14 @@ public class CompositeFormTest {
         CompositeForm group1 = new CompositeForm("quadrilatere");
 
         Position centre = new Position(0., 0.);
-        Cercle c1 = new Cercle(centre, 50.);
+        Cercle c1 = new Cercle("c1", centre, 50.);
         Position A = new Position(2., 1.);
         Position B = new Position(1., 1.);
         Position C = new Position(2., 2.);
         Position D = new Position(1., 2.);
-        Carre carre = new Carre(A, B, C, D);
-        Rectangle rect = new Rectangle(A, B, C, D);
-        Triangle triangle = new Triangle(A, B, C);
+        Carre carre = new Carre("carre1",A, B, C, D);
+        Rectangle rect = new Rectangle("rect1",A, B, C, D);
+        Triangle triangle = new Triangle("trg1",A, B, C);
 
         group1.add(rect);
         group1.add(carre);

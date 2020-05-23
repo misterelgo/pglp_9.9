@@ -11,10 +11,10 @@ public class CercleDAOTest {
         CercleDAO cercle = new CercleDAO();
         cercle.createForm();
         Position centre = new Position(0., 0.);
-        Cercle c1 = new Cercle(centre, 50.);
+        Cercle c1 = new Cercle("c1", centre, 50.);
         cercle.addForme(c1);
         cercle.printAll();
-        cercle.findForm(3);
+        cercle.findForm("c1");
         cercle.printAll();
     }
 }
