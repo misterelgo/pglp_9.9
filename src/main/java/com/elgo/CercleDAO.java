@@ -42,7 +42,6 @@ public class CercleDAO extends DAO_API{
 
             stmt.executeUpdate(dropTables);
             stmt.executeUpdate(queryCercle);
-            System.out.println("Created table in given database...");
 
             // STEP 4: Clean-up environment
             stmt.close();
@@ -84,7 +83,7 @@ public class CercleDAO extends DAO_API{
 
             stmt.executeUpdate(sql);
 
-            System.out.println("Inserted form into the table...");
+            System.out.println("Inserted cercle into the table...");
 
             // STEP 4: Clean-up environment
             stmt.close();
@@ -217,11 +216,9 @@ public class CercleDAO extends DAO_API{
             Class.forName(JDBC_DRIVER);
 
             // STEP 2: Open a connection
-            System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
             // STEP 3: Execute a query
-            System.out.println("Connected database successfully...");
             stmt = conn.createStatement();
             String sql = "SELECT id, nom, centreX, centreY, rayon FROM CERCLE";
             ResultSet rs = stmt.executeQuery(sql);
