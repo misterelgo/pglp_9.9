@@ -8,10 +8,10 @@ public class CercleDAOTest {
 
     @Test
     public void createForm() {
-        CercleDAO cercle = new CercleDAO();
-        cercle.createForm();
         Position centre = new Position(0., 0.);
         Cercle c1 = new Cercle("c1", centre, 50.);
+        CercleDAO cercle = new CercleDAO(c1);
+        cercle.createForm();
         cercle.addForme(c1);
         cercle.printAll();
         cercle.findForm("c1");

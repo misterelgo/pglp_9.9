@@ -1,6 +1,6 @@
 package com.elgo;
 
-public class CreateCarreCommand implements ICommand {
+public class CommandCarre implements ICommand {
     @Override
     public void execute() {
 

@@ -1,6 +1,6 @@
 package com.elgo;
 
-public class CreateRectCommand implements ICommand{
+public class CommandRect implements ICommand{
     @Override
     public void execute() {
 

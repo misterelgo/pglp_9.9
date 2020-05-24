@@ -1,11 +1,13 @@
 package com.elgo;
 
 
+
 import java.sql.*;
 
 
 public class CercleDAO extends DAO_API{
 
+    Cercle cercle;
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "org.h2.Driver";
     static final String DB_URL = "jdbc:h2:~/formes";
@@ -13,6 +15,9 @@ public class CercleDAO extends DAO_API{
     //  Database credentials
     static final String USER = "elgo";
     static final String PASS = "";
+    public CercleDAO(Cercle cercle){
+        this.cercle = cercle;
+    }
 
     @Override
     public void createForm() {
@@ -23,7 +28,6 @@ public class CercleDAO extends DAO_API{
             Class.forName(JDBC_DRIVER);
 
             // STEP 2: Open a connection
-            System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
             // STEP 3: Execute a query
@@ -71,9 +75,7 @@ public class CercleDAO extends DAO_API{
             Class.forName(JDBC_DRIVER);
 
             // STEP 2: Open a connection
-            System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
-            System.out.println("Connected database successfully...");
 
             // STEP 3: Execute a query
             stmt = conn.createStatement();
@@ -82,7 +84,7 @@ public class CercleDAO extends DAO_API{
 
             stmt.executeUpdate(sql);
 
-            System.out.println("Inserted records into the table...");
+            System.out.println("Inserted form into the table...");
 
             // STEP 4: Clean-up environment
             stmt.close();
@@ -115,9 +117,7 @@ public class CercleDAO extends DAO_API{
             Class.forName(JDBC_DRIVER);
 
             // STEP 2: Open a connection
-            System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
-            System.out.println("Connected database successfully...");
 
             // STEP 3: Execute a query
             stmt = conn.createStatement();

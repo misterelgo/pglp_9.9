@@ -6,10 +6,14 @@ public class DrawingApp {
     private  ICommand command;
     private Formes forme ;
     public  void run(){
+        DrawingTUI drawform = new DrawingTUI();
         System.out.println("Veuillez entrer une commande:");
         Scanner sc = new Scanner(System.in);
-        String saisitUser=sc.nextLine();
-        DrawingTUI drawform = new DrawingTUI();
+        String userInput=sc.nextLine();
+        command = drawform.nextCommand(userInput);
+        //System.out.println(userInput);
+        command.execute();
+
     }
     public static void main( String[] args ) {
 

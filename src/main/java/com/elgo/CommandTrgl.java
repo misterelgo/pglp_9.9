@@ -1,6 +1,6 @@
 package com.elgo;
 
-public class CreateTriangleCommand implements ICommand{
+public class CommandTrgl implements ICommand{
     @Override
     public void execute() {
 
